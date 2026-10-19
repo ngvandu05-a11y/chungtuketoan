@@ -534,6 +534,10 @@
                             <label class="block text-xs font-semibold text-slate-600 mb-1">Nhập tại kho / Địa điểm</label>
                             <input type="text" id="nk-kho-nhap" value="Kho Tổng - Công ty TNHH Thời trang DB" oninput="updatePreviewNhapKho()" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-lg">
                         </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Chứng từ kèm theo</label>
+                            <input type="text" id="nk-chung-tu-kem" value="01 Hóa đơn GTGT và Biên bản giao nhận" oninput="updatePreviewNhapKho()" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-lg">
+                        </div>
 
                         <!-- Danh sách hàng hóa nhập kho -->
                         <div class="pt-2">
@@ -719,6 +723,10 @@
                             <label class="block text-xs font-semibold text-slate-600 mb-1">Xuất tại kho / Địa điểm</label>
                             <input type="text" id="xk-kho-xuat" value="Kho Nguyên Phụ Liệu - Công ty TNHH Thời trang DB" oninput="updatePreviewXuatKho()" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-lg">
                         </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Chứng từ kèm theo</label>
+                            <input type="text" id="xk-chung-tu-kem" value="01 Lệnh sản xuất và Giấy đề xuất vật tư" oninput="updatePreviewXuatKho()" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-lg">
+                        </div>
 
                         <!-- Danh sách hàng hóa xuất kho -->
                         <div class="pt-2">
@@ -849,7 +857,7 @@
                         <div><div class="font-bold text-[11px]">NGƯỜI LẬP PHIẾU</div><div class="italic text-[9px]">(Ký, họ tên)</div><div class="h-14"></div><div id="prev-xk-sig-lap" class="font-bold text-[10px]">Lê Thị Ngọc Hân</div></div>
                         <div><div class="font-bold text-[11px]">NGƯỜI NHẬN HÀNG</div><div class="italic text-[9px]">(Ký, họ tên)</div><div class="h-14"></div><div id="prev-xk-sig-nguoinhan" class="font-bold text-[10px]">Nguyễn Văn Xưởng</div></div>
                         <div><div class="font-bold text-[11px]">THỦ KHO</div><div class="italic text-[9px]">(Ký, họ tên)</div><div class="h-14"></div><div id="prev-xk-sig-thukho" class="font-bold text-[10px]">Đoàn Bảo Bình</div></div>
-                        <div><div class="font-bold text-[11px]">KẾ TOÁN TRƯỞNG</div><div class="italic text-[9px]">(Ký, họ tên)</div><div class="h-14"></div><div id="prev-xk-sig-ketoan" class="font-bold text-[10px]">Nguyễn Văn Đủ</div></div>
+                        <div><div class="font-bold text-[11px]">KẾ TOÁN TRƯỜNG</div><div class="italic text-[9px]">(Ký, họ tên)</div><div class="h-14"></div><div id="prev-xk-sig-ketoan" class="font-bold text-[10px]">Nguyễn Văn Đủ</div></div>
                     </div>
                 </div>
             </div>
@@ -1080,6 +1088,7 @@
             document.getElementById('prev-nk-sig-nguoigiao').innerText = document.getElementById('nk-nguoi-giao').value || '...';
             document.getElementById('prev-nk-hoadon').innerText = document.getElementById('nk-theo-chung-tu').value || '...';
             document.getElementById('prev-nk-khonhap').innerText = document.getElementById('nk-kho-nhap').value || '...';
+            document.getElementById('prev-nk-chungtukem').innerText = document.getElementById('nk-chung-tu-kem').value || '...';
 
             let dVal = document.getElementById('nk-ngay-lap').value;
             if (dVal) {
@@ -1148,6 +1157,7 @@
             document.getElementById('prev-xk-sig-nguoinhan').innerText = document.getElementById('xk-nguoi-nhan').value || '...';
             document.getElementById('prev-xk-lydo').innerText = document.getElementById('xk-ly-do').value || '...';
             document.getElementById('prev-xk-khoxuat').innerText = document.getElementById('xk-kho-xuat').value || '...';
+            document.getElementById('prev-xk-chungtukem').innerText = document.getElementById('xk-chung-tu-kem').value || '...';
 
             let dVal = document.getElementById('xk-ngay-lap').value;
             if (dVal) {
@@ -1268,6 +1278,7 @@
                 ["Người giao hàng:", document.getElementById('nk-nguoi-giao').value, "", "", "", "", "", ""],
                 ["Theo hóa đơn:", document.getElementById('nk-theo-chung-tu').value, "", "", "", "", "", ""],
                 ["Nhập tại kho:", document.getElementById('nk-kho-nhap').value, "", "", "", "", "", ""],
+                ["Chứng từ gốc kèm theo:", document.getElementById('nk-chung-tu-kem').value, "", "", "", "", "", ""],
                 ["", "", "", "", "", "", "", ""],
                 ["STT", "Tên quy cách vật tư", "Mã số", "ĐVT", "Theo CT", "Thực nhập", "Đơn giá", "Thành tiền"]
             ];
@@ -1305,6 +1316,7 @@
                 ["Người nhận hàng:", document.getElementById('xk-nguoi-nhan').value, "", "", "", "", "", ""],
                 ["Lý do xuất:", document.getElementById('xk-ly-do').value, "", "", "", "", "", ""],
                 ["Xuất tại kho:", document.getElementById('xk-kho-xuat').value, "", "", "", "", "", ""],
+                ["Chứng từ gốc kèm theo:", document.getElementById('xk-chung-tu-kem').value, "", "", "", "", "", ""],
                 ["", "", "", "", "", "", "", ""],
                 ["STT", "Tên quy cách vật tư", "Mã số", "ĐVT", "Yêu cầu", "Thực xuất", "Đơn giá", "Thành tiền"]
             ];
@@ -1414,7 +1426,7 @@
    <div class="tl-line"><span class="tl-key">Tên, ký mã hiệu, quy cách (cấp hạng) TSCĐ</span><span class="tl-val" id="tlp-tenta"></span></div><div class="tl-line"><span class="tl-key">Số hiệu TSCĐ/Mã TSCĐ</span><span class="tl-val" id="tlp-mata"></span></div><div class="tl-line"><span class="tl-key">Năm sản xuất</span><span class="tl-val" id="tlp-namsx"></span></div><div class="tl-line"><span class="tl-key">Năm đưa vào sử dụng</span><span class="tl-val" id="tlp-namsd"></span><span>Số thẻ TSCĐ:</span><span class="tl-val" id="tlp-sothe"></span></div><div class="tl-line"><span class="tl-key">Nguyên giá TSCĐ</span><span class="tl-val" id="tlp-nguyengia"></span></div><div class="tl-line"><span class="tl-key">Giá trị hao mòn đã trích đến thời điểm thanh lý</span><span class="tl-val" id="tlp-haomon"></span></div><div class="tl-line"><span class="tl-key">Giá trị còn lại của TSCĐ</span><span class="tl-val" id="tlp-conlai"></span></div>
    <p style="font-weight:bold;margin-top:14px">III. Kết luận của Ban thanh lý TSCĐ:</p><p id="tlp-ketluan" style="min-height:35px;white-space:pre-wrap;border-bottom:1px dotted #555"></p><div style="text-align:right;margin-top:12px;font-style:italic"><span id="tlp-ngaytruongban">Ngày … tháng … năm …</span></div><div style="display:flex;justify-content:flex-end;margin-top:8px"><div class="tl-signbox" style="width:33.333%;text-align:center"><b>TRƯỞNG BAN THANH LÝ</b><div><i>(Ký, họ tên)</i></div><div class="tl-signspace"></div><b id="tlp-ky-truongban"></b></div></div>
    <p style="font-weight:bold;margin-top:16px">IV. Kết quả thanh lý TSCĐ:</p><div class="tl-line"><span class="tl-key">Chi phí thanh lý TSCĐ</span><span class="tl-val" id="tlp-chiphi"></span></div><div style="margin-left:10px;font-style:italic">(Viết bằng chữ: <span id="tlp-chiphi-chu">—</span>)</div><div class="tl-line"><span class="tl-key">Giá trị thu hồi</span><span class="tl-val" id="tlp-thuhoi"></span></div><div style="margin-left:10px;font-style:italic">(Viết bằng chữ: <span id="tlp-thuhoi-chu">—</span>)</div><div class="tl-line"><span class="tl-key">Đã ghi giảm sổ TSCĐ ngày</span><span class="tl-val" id="tlp-ngayghigiam"></span></div>
-   <div class="tl-sign" style="grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between"><div class="tl-signbox"><b>GIÁM ĐỐC</b><div><i>(Ký, họ tên, đóng dấu)</i></div><div class="tl-signspace"></div><b id="tlp-ky-giamdoc"></b></div><div class="tl-signbox"><b>KẾ TOÁN TRƯỞNG</b><div><i>(Ký, họ tên)</i></div><div class="tl-signspace"></div><b id="tlp-ky-ketoan"></b></div></div>
+   <div class="tl-sign" style="grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between"><div class="tl-signbox"><b>GIÁM ĐỐC</b><div><i>(Ký, họ tên, đóng dấu)</i></div><div class="tl-signspace"></div><b id="tlp-ky-giamdoc"></b></div><div class="tl-signbox"><b>KẾ TOÁN TRƯỜNG</b><div><i>(Ký, họ tên)</i></div><div class="tl-signspace"></div><b id="tlp-ky-ketoan"></b></div></div>
   </div></div>`;
   main.appendChild(view);
   const cards=Array.from(document.querySelector('#view-home').children).find(el=>el.classList.contains('grid')&&el.classList.contains('lg:grid-cols-4'));
